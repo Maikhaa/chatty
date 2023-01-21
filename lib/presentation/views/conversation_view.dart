@@ -36,6 +36,7 @@ class ConversationView extends StatelessWidget {
             case ConversationStatus.initial:
               return initial();
             case ConversationStatus.success:
+            case ConversationStatus.updated:
               return conversation(state);
             default:
               return loading();

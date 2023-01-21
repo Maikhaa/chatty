@@ -39,5 +39,24 @@ class ConversationCubit extends Cubit<ConversationState> {
 
     emit(
         state.copyWith(messages: messages, status: ConversationStatus.success));
+
+    Future.delayed(const Duration(seconds: 2), () {
+      _generateResponseMessage();
+    });
+  }
+
+  void _generateResponseMessage() async {
+    final responseMessage = Message(
+      id: '',
+      message: 'OK, that sounds great.',
+      modifiedAt: 0,
+      sender: '',
+    );
+
+    final List<Message> messages = state.messages ?? [];
+    messages.add(responseMessage);
+
+    emit(
+        state.copyWith(messages: messages, status: ConversationStatus.updated));
   }
 }
