@@ -11,7 +11,8 @@ class MessageW extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       tileColor: Colors.white10,
-      subtitle: Text(message.message),
+      trailing: Text(message.sender),
+      title: Text(message.message),
     );
   }
 }

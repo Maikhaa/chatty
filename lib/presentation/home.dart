@@ -17,8 +17,8 @@ class Home extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
         textTheme: Theme.of(context).textTheme.apply(
-              bodyColor: Colors.black54,
-              displayColor: Colors.black38,
+              bodyColor: Colors.black87,
+              displayColor: Colors.black54,
             ),
       ),
       home: Scaffold(

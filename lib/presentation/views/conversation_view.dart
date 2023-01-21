@@ -13,13 +13,13 @@ class ConversationView extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     final width = kIsWeb ? screenWidth * 0.7 : screenWidth * 0.9;
-    final height = kIsWeb ? screenHeight * 0.9 : screenHeight * 0.8;
+    final height = kIsWeb ? screenHeight * 0.85 : screenHeight * 0.8;
 
     Widget conversation(ConversationState state) {
       final messages = state.messages;
 
       return Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(top: 50),
         child: ListView.separated(
           itemCount: messages!.length,
           itemBuilder: (context, index) => MessageW(

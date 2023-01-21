@@ -32,7 +32,7 @@ class ConversationCubit extends Cubit<ConversationState> {
         id: '',
         message: stringMessage,
         modifiedAt: 0,
-        sender: '',
+        sender: 'Me',
       );
 
       final List<Message> messages = await repo.getCurrentMessages();
@@ -47,14 +47,16 @@ class ConversationCubit extends Cubit<ConversationState> {
   }
 
   void _generateResponseMessage() async {
+    final List<Message> messages = state.messages ?? [];
+    final String sender = messages[0].sender;
+
     final responseMessage = Message(
       id: '',
       message: 'OK, that sounds great.',
       modifiedAt: 0,
-      sender: '',
+      sender: sender,
     );
 
-    final List<Message> messages = state.messages ?? [];
     messages.add(responseMessage);
 
     emit(

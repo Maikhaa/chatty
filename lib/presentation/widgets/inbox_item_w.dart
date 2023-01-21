@@ -11,6 +11,7 @@ class InboxItemW extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      leading: const Icon(Icons.add),
       title: Text(inboxItem.topic),
       subtitle: Text(inboxItem.lastMessage),
       onTap: () {
