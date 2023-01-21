@@ -10,6 +10,7 @@ class MessageW extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      tileColor: Colors.white10,
       subtitle: Text(message.message),
     );
   }

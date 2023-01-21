@@ -20,11 +20,14 @@ class ConversationView extends StatelessWidget {
 
       return Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ListView.builder(
+        child: ListView.separated(
           itemCount: messages!.length,
           itemBuilder: (context, index) => MessageW(
             message: messages[index],
           ),
+          separatorBuilder: (context, index) {
+            return const Divider(color: Colors.transparent);
+          },
         ),
       );
     }
