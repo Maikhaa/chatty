@@ -1,5 +1,8 @@
-import 'package:chatty/presentation/home.dart';
+import 'package:chatty/data/repository.dart';
+import 'package:chatty/presentation/home_page.dart';
+import 'package:chatty/presentation/logic/inbox_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const Chatty());
@@ -10,12 +13,9 @@ class Chatty extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Chatty',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Home(title: 'Chatty'),
+    return BlocProvider(
+      create: (_) => InboxCubit(Repository()),
+      child: const HomePage(title: 'Chatty'),
     );
   }
 }
