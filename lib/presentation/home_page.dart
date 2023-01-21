@@ -1,5 +1,5 @@
-import 'package:chatty/presentation/conversation_view.dart';
-import 'package:chatty/presentation/inbox_view.dart';
+import 'package:chatty/presentation/views/conversation_view.dart';
+import 'package:chatty/presentation/views/inbox_view.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {

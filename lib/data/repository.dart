@@ -1,7 +1,7 @@
-import 'package:chatty/core/api_interceptor.dart';
-import 'package:chatty/core/types.dart';
-import 'package:chatty/data/response/conversation_response.dart';
-import 'package:chatty/data/response/inbox_response.dart';
+import 'package:chatty/data/responses/conversation_response.dart';
+import 'package:chatty/data/responses/inbox_response.dart';
+import 'package:chatty/data/utils/api_interceptor.dart';
+import 'package:chatty/data/utils/types.dart';
 import 'package:http/http.dart' as http;
 
 class Repository {

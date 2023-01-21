@@ -1,6 +1,6 @@
-import 'package:chatty/core/types.dart';
 import 'package:chatty/data/repository.dart';
-import 'package:chatty/data/response/inbox_response.dart';
+import 'package:chatty/data/responses/inbox_response.dart';
+import 'package:chatty/data/utils/types.dart';
 import 'package:chatty/domain/inbox_item.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

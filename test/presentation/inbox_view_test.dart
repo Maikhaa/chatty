@@ -1,6 +1,6 @@
 import 'package:chatty/data/repository.dart';
-import 'package:chatty/data/response/inbox_response.dart';
-import 'package:chatty/presentation/inbox_view.dart';
+import 'package:chatty/data/responses/inbox_response.dart';
+import 'package:chatty/presentation/views/inbox_view.dart';
 import 'package:chatty/presentation/logic/inbox/inbox_cubit.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';

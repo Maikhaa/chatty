@@ -1,5 +1,5 @@
-import 'package:chatty/core/types.dart';
-import 'package:chatty/data/response/failure.dart';
+import 'package:chatty/data/utils/failure.dart';
+import 'package:chatty/data/utils/types.dart';
 import 'package:dartz/dartz.dart';
 
 Future<ApiResponse<R>> apiInterceptor<R>(

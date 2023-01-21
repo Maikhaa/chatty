@@ -1,6 +1,6 @@
-import 'package:chatty/core/types.dart';
 import 'package:chatty/data/repository.dart';
-import 'package:chatty/data/response/conversation_response.dart';
+import 'package:chatty/data/responses/conversation_response.dart';
+import 'package:chatty/data/utils/types.dart';
 import 'package:chatty/domain/message.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
