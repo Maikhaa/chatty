@@ -2,10 +2,12 @@ import 'package:chatty/presentation/views/conversation_view.dart';
 import 'package:chatty/presentation/views/inbox_view.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+import 'views/input_view.dart';
+
+class Home extends StatelessWidget {
   final String title;
 
-  const HomePage({required this.title, Key? key}) : super(key: key);
+  const Home({required this.title, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +19,14 @@ class HomePage extends StatelessWidget {
       home: Scaffold(
         body: Center(
           child: Row(
-            children: const [
-              InboxView(),
-              ConversationView(),
+            children: [
+              const InboxView(),
+              Column(
+                children: const [
+                  ConversationView(),
+                  InputView(),
+                ],
+              )
             ],
           ),
         ),

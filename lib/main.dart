@@ -1,5 +1,5 @@
 import 'package:chatty/data/repository.dart';
-import 'package:chatty/presentation/home_page.dart';
+import 'package:chatty/presentation/home.dart';
 import 'package:chatty/presentation/logic/conversation/conversation_cubit.dart';
 import 'package:chatty/presentation/logic/inbox/inbox_cubit.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,7 @@ class Chatty extends StatelessWidget {
         BlocProvider(create: (_) => InboxCubit(repository)),
         BlocProvider(create: (_) => ConversationCubit(repository)),
       ],
-      child: const HomePage(title: 'Chatty'),
+      child: const Home(title: 'Chatty'),
     );
   }
 }
