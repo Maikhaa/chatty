@@ -10,4 +10,13 @@ class Message {
     required this.modifiedAt,
     required this.sender,
   });
+
+  factory Message.fromJson(Map<String, dynamic> json) {
+    return Message(
+      id: json['id'],
+      message: json['message'],
+      modifiedAt: json['modified_at'],
+      sender: json['sender'],
+    );
+  }
 }

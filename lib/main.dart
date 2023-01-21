@@ -1,6 +1,7 @@
 import 'package:chatty/data/repository.dart';
 import 'package:chatty/presentation/home_page.dart';
-import 'package:chatty/presentation/logic/inbox_cubit.dart';
+import 'package:chatty/presentation/logic/conversation/conversation_cubit.dart';
+import 'package:chatty/presentation/logic/inbox/inbox_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,8 +14,13 @@ class Chatty extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => InboxCubit(Repository()),
+    final repository = Repository();
+
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => InboxCubit(repository)),
+        BlocProvider(create: (_) => ConversationCubit(repository)),
+      ],
       child: const HomePage(title: 'Chatty'),
     );
   }

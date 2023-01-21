@@ -1,4 +1,5 @@
-import 'package:chatty/presentation/logic/inbox_cubit.dart';
+import 'package:chatty/presentation/logic/conversation/conversation_cubit.dart';
+import 'package:chatty/presentation/logic/inbox/inbox_cubit.dart';
 import 'package:chatty/presentation/widgets/inbox_item_w.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,8 +41,13 @@ class _InboxViewState extends State<InboxView> {
       width: MediaQuery.of(context).size.width * 0.4,
       child: ListView.builder(
         itemCount: inboxItems!.length,
-        itemBuilder: (context, index) =>
-            InboxItemW(inboxItem: inboxItems[index]),
+        itemBuilder: (context, index) => InboxItemW(
+          inboxItem: inboxItems[index],
+          onTap: () {
+            final id = inboxItems[index].id;
+            BlocProvider.of<ConversationCubit>(context).fetchConversation(id);
+          },
+        ),
       ),
     );
   }
