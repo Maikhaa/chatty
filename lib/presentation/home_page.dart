@@ -1,3 +1,4 @@
+import 'package:chatty/presentation/conversation_view.dart';
 import 'package:chatty/presentation/inbox_view.dart';
 import 'package:flutter/material.dart';
 
@@ -16,9 +17,9 @@ class HomePage extends StatelessWidget {
       home: Scaffold(
         body: Center(
           child: Row(
-            children: [
-              const InboxView(),
-              Container(),
+            children: const [
+              InboxView(),
+              ConversationView(),
             ],
           ),
         ),
