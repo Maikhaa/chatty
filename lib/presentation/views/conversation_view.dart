@@ -23,6 +23,7 @@ class ConversationView extends StatelessWidget {
         child: ListView.separated(
           itemCount: messages!.length,
           itemBuilder: (context, index) => MessageW(
+            key: const Key('message'),
             message: messages[index],
           ),
           separatorBuilder: (context, index) {

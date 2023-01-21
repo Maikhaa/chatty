@@ -50,6 +50,7 @@ class _InboxViewState extends State<InboxView> {
     return ListView.builder(
       itemCount: inboxItems!.length,
       itemBuilder: (context, index) => InboxItemW(
+        key: const Key('inbox-item'),
         inboxItem: inboxItems[index],
         onTap: () {
           final id = inboxItems[index].id;

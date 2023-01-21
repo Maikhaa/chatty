@@ -3,7 +3,7 @@ import 'package:chatty/data/responses/inbox_response.dart';
 import 'package:chatty/presentation/home.dart';
 import 'package:chatty/presentation/logic/conversation/conversation_cubit.dart';
 import 'package:chatty/presentation/logic/inbox/inbox_cubit.dart';
-import 'package:chatty/presentation/widgets/inbox_item_w.dart';
+import 'package:chatty/presentation/views/input_view.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,30 +26,30 @@ void main() {
   },] ''');
 
   Widget setupWidget(Widget widget) => MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => InboxCubit(mockRepository),
-          ),
-          BlocProvider(
-            create: (context) => ConversationCubit(mockRepository),
-          ),
-        ],
-        child: MaterialApp(
-          home: widget,
-        ),
-      );
+    providers: [
+      BlocProvider(
+        create: (context) => InboxCubit(mockRepository),
+      ),
+      BlocProvider(
+        create: (context) => ConversationCubit(mockRepository),
+      ),
+    ],
+    child: MaterialApp(
+      home: widget,
+    ),
+  );
 
-  testWidgets('Displays inbox items - when loading', (tester) async {
+  testWidgets('Displays input view - when loading', (tester) async {
     FlutterError.onError = ignoreOverflowErrors;
 
     when(
-      () => mockRepository.fetchInboxItems(),
+          () => mockRepository.fetchInboxItems(),
     ).thenAnswer((_) async => Right(inboxResponse));
 
     await tester.pumpWidget(setupWidget(const Home(title: 'Test')));
     await tester.pumpAndSettle();
 
-    final inboxItem = find.byType(InboxItemW);
+    final inboxItem = find.byType(InputView);
     expect(inboxItem, findsOneWidget);
   });
 }
