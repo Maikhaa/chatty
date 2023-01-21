@@ -12,11 +12,17 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Chatty',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
+        textTheme: Theme.of(context).textTheme.apply(
+              bodyColor: Colors.black54,
+              displayColor: Colors.black38,
+            ),
       ),
       home: Scaffold(
+        backgroundColor: Colors.lightGreen[400],
         body: Center(
           child: Row(
             children: [

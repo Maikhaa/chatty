@@ -18,10 +18,13 @@ class ConversationView extends StatelessWidget {
     Widget conversation(ConversationState state) {
       final messages = state.messages;
 
-      return ListView.builder(
-        itemCount: messages!.length,
-        itemBuilder: (context, index) => MessageW(
-          message: messages[index],
+      return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView.builder(
+          itemCount: messages!.length,
+          itemBuilder: (context, index) => MessageW(
+            message: messages[index],
+          ),
         ),
       );
     }

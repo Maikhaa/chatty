@@ -19,23 +19,29 @@ class InputView extends StatelessWidget {
     return SizedBox(
       width: width,
       height: height,
-      child: Row(
-        children: [
-          SizedBox(
-            width: kIsWeb ? screenWidth * 0.5 : screenWidth * 0.8,
-            child: TextFormField(
-              onChanged: (value) {
-                text = value;
-              },
+      child: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: kIsWeb ? screenWidth * 0.3 : screenWidth * 0.8,
+              child: TextFormField(
+                onChanged: (value) {
+                  text = value;
+                },
+              ),
             ),
-          ),
-          IconButton(
-            onPressed: () {
-              BlocProvider.of<ConversationCubit>(context).sendMessage(text);
-            },
-            icon: const Icon(Icons.send),
-          )
-        ],
+            IconButton(
+              onPressed: () {
+                BlocProvider.of<ConversationCubit>(context).sendMessage(text);
+              },
+              icon: const Icon(
+                Icons.send,
+                color: Colors.black38,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -27,22 +27,23 @@ class ConversationCubit extends Cubit<ConversationState> {
   }
 
   void sendMessage(String stringMessage) async {
-    final newMessage = Message(
-      id: '',
-      message: stringMessage,
-      modifiedAt: 0,
-      sender: '',
-    );
+    if (stringMessage.isNotEmpty) {
+      final newMessage = Message(
+        id: '',
+        message: stringMessage,
+        modifiedAt: 0,
+        sender: '',
+      );
 
-    final List<Message> messages = await repo.getCurrentMessages();
-    messages.add(newMessage);
+      final List<Message> messages = await repo.getCurrentMessages();
+      messages.add(newMessage);
 
-    emit(
-        state.copyWith(messages: messages, status: ConversationStatus.success));
-
-    Future.delayed(const Duration(seconds: 2), () {
-      _generateResponseMessage();
-    });
+      emit(state.copyWith(
+          messages: messages, status: ConversationStatus.success));
+      Future.delayed(const Duration(seconds: 2), () {
+        _generateResponseMessage();
+      });
+    }
   }
 
   void _generateResponseMessage() async {
