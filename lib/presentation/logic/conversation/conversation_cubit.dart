@@ -18,10 +18,26 @@ class ConversationCubit extends Cubit<ConversationState> {
 
     failureOrResponse.fold(
         (failure) => emit(state.copyWith(status: ConversationStatus.loading)),
-        (response) {
+        (response) async {
       final List<Message> messages = response.getMessages();
+
       emit(state.copyWith(
           messages: messages, status: ConversationStatus.success));
     });
+  }
+
+  void sendMessage(String stringMessage) async {
+    final newMessage = Message(
+      id: '',
+      message: stringMessage,
+      modifiedAt: 0,
+      sender: '',
+    );
+
+    final List<Message> messages = await repo.getCurrentMessages();
+    messages.add(newMessage);
+
+    emit(
+        state.copyWith(messages: messages, status: ConversationStatus.success));
   }
 }

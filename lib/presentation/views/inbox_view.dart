@@ -22,8 +22,10 @@ class _InboxViewState extends State<InboxView> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     final width = kIsWeb ? screenWidth * 0.2 : screenWidth * 0.9;
-    final height = MediaQuery.of(context).size.height * 0.9;
+    final height = kIsWeb ? screenHeight * 0.9 : screenHeight * 0.8;
 
     return SizedBox(
       width: width,
